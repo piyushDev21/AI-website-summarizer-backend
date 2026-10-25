@@ -1,0 +1,226 @@
+:root {
+  --bg: #ffffff;
+  --surface: #f6f8fb;
+  --border: #e2e6ee;
+  --text: #1c2230;
+  --muted: #5f6b7d;
+  --accent: #1a73e8;
+  --accent-hover: #1557b0;
+  --accent-text: #ffffff;
+  --error-bg: #fdecec;
+  --error-text: #a52323;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #15181e;
+    --surface: #1e232b;
+    --border: #2f3642;
+    --text: #e6e9ef;
+    --muted: #9aa4b5;
+    --accent: #8ab4f8;
+    --accent-hover: #aecbfa;
+    --accent-text: #0b1d3a;
+    --error-bg: #3a1d1f;
+    --error-text: #f4a9a9;
+    color-scheme: dark;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 14px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+}
+
+h1 {
+  margin: 0 0 4px;
+  font-size: 18px;
+}
+
+h2 {
+  margin: 0;
+  font-size: 14px;
+}
+
+.muted {
+  color: var(--muted);
+  margin: 0;
+}
+
+.small {
+  font-size: 12px;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+button:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+
+.segmented {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 3px;
+  gap: 3px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.segmented button {
+  padding: 6px 4px;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+}
+
+.segmented button.active {
+  background: var(--bg);
+  color: var(--text);
+  font-weight: 600;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.12);
+}
+
+.primary {
+  padding: 10px 16px;
+  border: none;
+  background: var(--accent);
+  color: var(--accent-text);
+  font-weight: 600;
+}
+
+.primary:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+.ghost {
+  padding: 2px 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  font-size: 12px;
+}
+
+.card {
+  padding: 12px 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.card.error {
+  background: var(--error-bg);
+  border-color: transparent;
+  color: var(--error-text);
+}
+
+.card-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+
+.card-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.markdown > :first-child {
+  margin-top: 0;
+}
+
+.markdown > :last-child {
+  margin-bottom: 0;
+}
+
+.markdown h3 {
+  margin: 12px 0 4px;
+  font-size: 14px;
+}
+
+.markdown p {
+  margin: 0 0 8px;
+}
+
+.markdown ul,
+.markdown ol {
+  margin: 0 0 8px;
+  padding-left: 20px;
+}
+
+.markdown li + li {
+  margin-top: 4px;
+}
+
+.markdown code {
+  padding: 1px 4px;
+  background: var(--border);
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.notes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 6px;
+}
+
+textarea,
+input {
+  width: 100%;
+  padding: 8px 10px;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font: inherit;
+}
+
+textarea {
+  min-height: 160px;
+  resize: vertical;
+}
+
+textarea:focus,
+input:focus,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.settings summary {
+  cursor: pointer;
+  color: var(--muted);
+}
+
+.settings label {
+  display: grid;
+  gap: 4px;
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--muted);
+}

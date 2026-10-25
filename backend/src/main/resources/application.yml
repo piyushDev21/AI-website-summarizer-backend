@@ -1,0 +1,21 @@
+server:
+  port: ${PORT:8080}
+
+spring:
+  application:
+    name: research-assistant
+  mvc:
+    problemdetails:
+      enabled: true
+  http:
+    client:
+      connect-timeout: 10s
+      read-timeout: 60s
+
+gemini:
+  api-key: ${GEMINI_API_KEY:}
+  model: ${GEMINI_MODEL:gemini-2.5-flash}
+
+app:
+  cors:
+    allowed-origin-patterns: ${CORS_ALLOWED_ORIGIN_PATTERNS:chrome-extension://*,http://localhost:*}
